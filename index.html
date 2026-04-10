@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coucher de Soleil</title>
+    <title>Cœur discret</title>
     <style>
         body {
             margin: 0;
@@ -11,87 +11,33 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* Fond blanc cassé / crème très clair */
+            /* Fond crème très clair */
             background-color: #FEFDF5; 
-            overflow: hidden; /* Évite les barres de défilement pendant l'animation */
+            overflow: hidden;
         }
 
         svg {
-            width: 80%;  /* S'adapte à la largeur de l'écran */
-            max-width: 600px; /* Limite la taille sur grand écran */
+            width: 40%;  /* Taille moyenne pour le cœur */
+            max-width: 200px;
             height: auto;
         }
 
-        /* --- Style des éléments (Lignes Noires) --- */
-        .line-art {
-            stroke: black;
-            stroke-width: 2; /* Épaisseur de la ligne */
-            fill: none;      /* Pas de remplissage */
-            stroke-linecap: round;
-        }
-
-        /* --- Définition des animations --- */
-
-        /* Le Soleil descend */
-        @keyframes sunset {
-            0%   { transform: translateY(0); opacity: 1; }
-            40%  { opacity: 1; }
-            60%  { transform: translateY(120px); opacity: 0; } /* Disparaît sous l'eau */
-            100% { transform: translateY(120px); opacity: 0; }
-        }
-
-        /* Le Cœur monte */
-        @keyframes heartRise {
-            0%   { transform: translateY(100px); opacity: 0; } /* Caché au début */
-            65%  { transform: translateY(100px); opacity: 0; } /* Reste caché pendant le coucher */
-            80%  { transform: translateY(0); opacity: 1; }     /* Monte et apparaît */
-            100% { transform: translateY(-10px); opacity: 1; } /* Petite stabilisation */
-        }
-
-        /* Les vagues scintillent légèrement */
-        @keyframes waveSway {
-            0%, 100% { transform: translateX(0); }
-            50%      { transform: translateX(5px); }
-        }
-
-        /* --- Application des animations --- */
-
-        #sun {
-            animation: sunset 6s ease-in-out infinite;
-            transform-origin: center;
-        }
-
         #heart {
-            animation: heartRise 6s ease-in-out infinite;
-            transform-origin: center;
-            fill: none; /* Cœur en contour noir uniquement */
+            /* Couleur crème légèrement plus soutenue pour le cœur (très discret) */
+            fill: #E9E6D1;
+            /* Pas de contour pour plus de discrétion, ou un contour très clair */
+            stroke: none;
+            /* Optionnel : légère transparence pour fondre encore plus */
+            /* opacity: 0.8; */
         }
-
-        .wave {
-            animation: waveSway 4s ease-in-out infinite;
-        }
-        #wave2 { animation-delay: 1s; } /* Décalage pour un effet naturel */
-        #wave3 { animation-delay: 2s; }
 
     </style>
 </head>
 <body>
 
-    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         
-        <g id="sun">
-            <path class="line-art" d="M150,150 a50,50 0 0,1 100,0" />
-        </g>
-
-        <path id="heart" class="line-art" d="M200,160 C200,160 180,140 160,160 C140,180 200,220 200,220 C200,220 260,180 240,160 C220,140 200,160 200,160 Z" />
-
-        <g class="line-art">
-            <line x1="50" y1="150" x2="350" y2="150" stroke-width="3"/>
-            
-            <path class="wave" id="wave1" d="M100,170 Q110,165 120,170 T140,170" />
-            <path class="wave" id="wave2" d="M180,185 Q190,180 200,185 T220,185" />
-            <path class="wave" id="wave3" d="M260,170 Q270,165 280,170 T300,170" />
-        </g>
+        <path id="heart" d="M50,30 C50,30 45,20 35,20 C25,20 15,30 15,40 C15,60 50,80 50,80 C50,80 85,60 85,40 C85,30 75,20 65,20 C55,20 50,30 50,30 Z" />
 
     </svg>
 
